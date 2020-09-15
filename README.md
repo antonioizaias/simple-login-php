@@ -8,6 +8,7 @@ Sistema simples para a funcionalidade de `Login` em *PHP* puro, usando sua estru
 
 <h2 align="center"><strong>Tópicos</strong></h2>
 
+- Acesso ao banco de dados com o *MySQL*.
 - Otimização da conexão com o banco de dados através do módulo *MySQLi*.
 - Paradigma de programação procedural.
 - Variáveis superglobais do *PHP*.
