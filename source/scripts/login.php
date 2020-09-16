@@ -4,10 +4,23 @@ include_once 'db_connection.php';
 // Iniciando a sessão
 session_start();
 
+// Clear
+function clear($conn, $dados)
+{
+    // SQL Injection
+    $input = mysqli_escape_string($conn, $dados);
+
+    // XSS
+    $input = htmlspecialchars($input);
+
+    return $input;
+}
+
+// Verificando se existe a variável do botão dentro do método POST
 if (isset($_POST['btn-login'])) {
     
-    $login = mysqli_escape_string($connection, $_POST['login']);
-    $senha = mysqli_escape_string($connection, $_POST['senha']);
+    $login = clear($connection, $_POST['login']);
+    $senha = clear($connection, $_POST['senha']);
 
     // Verificando se os campos estão vazios
     if ((empty($login)) or (empty($senha))) {
